@@ -1,1 +1,3 @@
+# While running tests, coverage is trying to read configuration in pyproject.toml
+coverage[toml]
 odoo14-addon-membership-delegated-partner-line @ git+https://github.com/OCA/vertical-association@refs/pull/151/head#subdirectory=setup/membership_delegated_partner_line
