@@ -1,0 +1,53 @@
+services:
+  odoo:
+    image: ghcr.io/oca/oca-custom:14.0-oca-latest
+    networks:
+      - internal
+      - kwkhtmltopdf
+    # build:
+    #   context: ./
+    #   cache_from:
+    volumes:
+      - oca_filestore:/data/odoo/filestore
+    command: ["odoo", "-c", "/etc/odoo.cfg"]
+    ports:
+      - 8069:8069
+    environment:
+      - DB_HOST=db
+      - DB_PASSWORD=${POSTGRES_PASSWORD:-ocapwd}
+      - DB_USER=${POSTGRES_USER:-oca}
+      - DB_NAME=${POSTGRES_DB:-oca}
+      - UNACCENT=True
+      - WORKERS=0
+      - LIST_DB=False
+      - WITHOUT_DEMO=False
+      - KWKHTMLTOPDF_SERVER_URL=http://kwkhtmltopdf:8080
+      - ODOO_REPORT_URL=http://odoo:8069
+      - RUNNING_ENV=dev
+
+  db:
+    image: postgres
+    volumes:
+      - oca_pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-oca}
+      POSTGRES_USER: ${POSTGRES_USER:-oca}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ocapwd}
+      # POSTGRES_HOST_AUTH_METHOD: "password"
+    networks:
+      - internal
+
+  kwkhtmltopdf:
+    image: ghcr.io/acsone/kwkhtmltopdf:0.12.5-latest
+    networks:
+      - kwkhtmltopdf
+
+networks:
+  internal:
+  kwkhtmltopdf:
+
+volumes:
+  oca_pgdata:
+    driver: local
+  oca_filestore:
+    driver: local
