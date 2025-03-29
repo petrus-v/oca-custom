@@ -12,13 +12,14 @@ It's split into 3 sections:
 ## Concepts
 
 This repository is setup as other OCA's repositories to launch CI as usual and as an
-extra configuration in order to realease the OCA' Docker image used by our Odoo
-instance.
+extra configuration in order to build the OCA' Docker image used by our Odoo instance,
+as well as facilitate the bootstrapping of a development environment.
 
 Managing and freezing modules versions rely on python tools:
 
 - [uv](https://docs.astral.sh/uv/)
 - [hatch-odoo](https://pypi.org/project/hatch-odoo/)
+- wkhtmltopdf
 
 ## Processes
 
@@ -38,7 +39,8 @@ Requirements:
 - Some dependencies to be able to build some python packages: `libpq-dev`,
   `build-essential`, TODO
 
-Prepare a python virtual environment and install the required dependencies:
+Prepare a python virtual environment with the correct python version (which uv will
+download for you if necessary) and install the required dependencies:
 
 ```bash
 uv sync
@@ -61,7 +63,6 @@ uv run pytest --odoo-database oca-custom --cov ./oca_psc_team/ oca_psc_team/
 ### Update OCB Branch
 
 ```bash
-uvx --from git-aggregator gitaggregate -c repos.yaml -d ./src/ocb -p
 uv sync -P odoo
 ````
 
