@@ -33,7 +33,6 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-oca}
       POSTGRES_USER: ${POSTGRES_USER:-oca}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ocapwd}
-      # POSTGRES_HOST_AUTH_METHOD: "password"
     networks:
       - internal
 

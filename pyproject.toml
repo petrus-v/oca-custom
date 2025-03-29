@@ -55,7 +55,6 @@ dependencies = [
     "pyserial==3.4",
     "python-dateutil==2.7.3",
     "pytz",
-    "pyusb==1.0.2",
     "qrcode==6.1",
     "reportlab==3.5.55",
     "requests==2.21.0",
