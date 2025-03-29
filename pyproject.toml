@@ -98,7 +98,7 @@ dev-dependencies = [
 
 [tool.uv.sources]
 odoo = { git = "https://github.com/OCA/OCB", branch = "14.0" }
-odoo-addons-design-themes = { git = "https://github.com/petrus-v/design-themes", branch = "14.0-oca-20250317" }
+odoo-addons-design-themes = { git = "https://github.com/acsone/design-themes", branch = "14.0-with-pyproject" }
 
 odoo14-addon-membership-delegated-partner-line = { git = "https://github.com/OCA/vertical-association", rev = "refs/pull/151/head", subdirectory = "setup/membership_delegated_partner_line" }
 

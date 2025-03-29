@@ -630,7 +630,7 @@ requires-dist = [
     { name = "markupsafe", specifier = "==1.1.0" },
     { name = "num2words", specifier = "==0.5.6" },
     { name = "odoo", git = "https://github.com/OCA/OCB?branch=14.0" },
-    { name = "odoo-addons-design-themes", git = "https://github.com/petrus-v/design-themes?branch=14.0-oca-20250317" },
+    { name = "odoo-addons-design-themes", git = "https://github.com/acsone/design-themes?branch=14.0-with-pyproject" },
     { name = "odoo14-addon-account-banking-pain-base" },
     { name = "odoo14-addon-account-banking-sepa-credit-transfer" },
     { name = "odoo14-addon-account-credit-control" },
@@ -764,7 +764,7 @@ dependencies = [
 [[package]]
 name = "odoo-addons-design-themes"
 version = "14.0"
-source = { git = "https://github.com/petrus-v/design-themes?branch=14.0-oca-20250317#b25509bd37bf63c1970db337a9bdbb00caa020a4" }
+source = { git = "https://github.com/acsone/design-themes?branch=14.0-with-pyproject#9e97900ec870301ca84772232a4d6a05f2d9b6cc" }
 dependencies = [
     { name = "odoo" },
 ]
