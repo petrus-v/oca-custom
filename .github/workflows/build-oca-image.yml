@@ -31,6 +31,5 @@ jobs:
       -
         name: Test install oca_all in docker image
         run: |
-          docker compose up -d db
-          sleep 10 # Attendre que PostgreSQL soit prêt
+          docker compose up --wait db
           docker compose run --rm odoo odoo -c /etc/odoo.cfg -i oca_all --without-demo= --stop-after-init

@@ -1,12 +1,11 @@
 services:
   odoo:
     image: ghcr.io/oca/oca-custom:14.0-oca-latest
+    build:
+      context: ./
     networks:
       - internal
       - kwkhtmltopdf
-    # build:
-    #   context: ./
-    #   cache_from:
     volumes:
       - oca_filestore:/data/odoo/filestore
     command: ["odoo", "-c", "/etc/odoo.cfg"]
@@ -35,6 +34,15 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ocapwd}
     networks:
       - internal
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "sh -c 'pg_isready -U ${POSTGRES_USER:-oca} -d ${POSTGRES_DB:-oca}'",
+        ]
+      interval: 3s
+      timeout: 2s
+      retries: 3
 
   kwkhtmltopdf:
     image: ghcr.io/acsone/kwkhtmltopdf:0.12.5-latest
