@@ -19,7 +19,6 @@ Managing and freezing modules versions rely on python tools:
 
 - [uv](https://docs.astral.sh/uv/)
 - [hatch-odoo](https://pypi.org/project/hatch-odoo/)
-- wkhtmltopdf
 
 ## Processes
 
@@ -38,6 +37,7 @@ Requirements:
 - [uv](https://docs.astral.sh/uv/)
 - Some dependencies to be able to build some python packages: `libpq-dev`,
   `build-essential`, TODO
+- wkhtmltopdf
 
 Prepare a python virtual environment with the correct python version (which uv will
 download for you if necessary) and install the required dependencies:
