@@ -762,7 +762,7 @@ dependencies = [
 [[package]]
 name = "odoo-addons-design-themes"
 version = "14.0"
-source = { git = "https://github.com/acsone/design-themes?branch=14.0-with-pyproject#9e97900ec870301ca84772232a4d6a05f2d9b6cc" }
+source = { git = "https://github.com/acsone/design-themes?branch=14.0-with-pyproject#57d7a43a1e1fab29c56e4a4c8f07f314c6a4aadc" }
 dependencies = [
     { name = "odoo" },
 ]
