@@ -31,5 +31,7 @@ jobs:
       -
         name: Test install oca_all in docker image
         run: |
-          docker compose up --wait db
+          docker compose up --wait db kwkhtmltopdf
           docker compose run --rm odoo odoo -c /etc/odoo.cfg -i oca_all --without-demo= --stop-after-init
+          # purpose it to test update entrypoints
+          docker compose up --wait odoo

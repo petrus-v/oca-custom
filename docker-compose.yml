@@ -23,6 +23,13 @@ services:
       - KWKHTMLTOPDF_SERVER_URL=http://kwkhtmltopdf:8080
       - ODOO_REPORT_URL=http://odoo:8069
       - RUNNING_ENV=dev
+    healthcheck:
+      test: ["CMD", "bash", "-c", "echo > /dev/tcp/0.0.0.0/8069"]
+      # test: ["CMD-SHELL", "sh -c '(echo > /dev/tcp/0.0.0.0/8069) >/dev/null 2>&1'"]
+      # install is done without checksum so start in CI will be quite long
+      interval: 2s
+      timeout: 200ms
+      retries: 150
 
   db:
     image: postgres

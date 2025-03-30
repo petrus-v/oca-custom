@@ -61,3 +61,5 @@ WORKDIR /app
 RUN python -m compileall .
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked --no-dev
+
+COPY entrypoints/* /odoo/start-entrypoint.d/
