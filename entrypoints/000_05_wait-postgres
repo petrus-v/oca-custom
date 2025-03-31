@@ -1,5 +1,8 @@
 #!/bin/bash
 
+set -e
+set -x
+
 # Configuration
 MAX_RETRIES=30  # Maximum number of attempts
 SLEEP_TIME=2    # Wait time between attempts (in seconds)
