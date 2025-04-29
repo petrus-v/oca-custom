@@ -101,6 +101,7 @@ odoo = { git = "https://github.com/OCA/OCB", branch = "14.0" }
 odoo-addons-design-themes = { git = "https://github.com/acsone/design-themes", branch = "14.0-with-pyproject" }
 
 odoo14-addon-membership-delegated-partner-line = { git = "https://github.com/OCA/vertical-association", rev = "refs/pull/151/head", subdirectory = "setup/membership_delegated_partner_line" }
+# odoo14-addon-membership-delegated-partner-line = { path = "src/vertical-association/setup/membership_delegated_partner_line", editable = true }
 
 
 [tool.pytest]

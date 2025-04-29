@@ -1241,8 +1241,8 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-membership-delegated-partner-line"
-version = "14.0.1.0.1.dev6"
-source = { git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead#0a2e1e8967ca81b255c7e1de9cd99319e4dc49c3" }
+version = "14.0.1.0.1.dev1"
+source = { git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead#73c0f18963c7c867def92506787128aa9fd99661" }
 dependencies = [
     { name = "odoo" },
 ]
