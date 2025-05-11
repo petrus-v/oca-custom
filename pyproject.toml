@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "oca-custom"
-version = "14.0.20250511"
+version = "14.0.20250511.1"
 description = "Odoo by OCA"
 # readme = "README.md"
 requires-python = "==3.9.*"
@@ -115,7 +115,7 @@ omit = [
 ]
 
 [tool.bumpversion]
-current_version = "14.0.20250511"
+current_version = "14.0.20250511.1"
 search = "{current_version}"
 replace = "{new_version}"
 regex = false
