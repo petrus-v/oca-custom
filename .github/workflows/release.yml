@@ -1,0 +1,44 @@
+name: Release OCA
+
+on:
+  workflow_dispatch:
+    inputs:
+      bump-type:
+        description: 'Bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+      -
+        name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - 
+        name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+      - 
+        name: Bump version
+        id: bump
+        uses: callowayproject/bump-my-version@master
+        env:
+          BUMPVERSION_TAG: "true"
+        with:
+          args: ${{ inputs.bump-type }}
+          github-token: ${{ secrets.GH_PAT }}
+      - 
+        name: Push tag
+        run: |
+          git push origin v${{ steps.bump.outputs.current-version }}

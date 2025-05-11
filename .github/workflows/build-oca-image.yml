@@ -1,4 +1,4 @@
-name: Build
+name: Build Docker Image
 
 on:
   pull_request:
@@ -7,20 +7,31 @@ on:
   push:
     branches:
       - "14.0"
-      - "14.0-ocabot-*"
+    tags:
+      - 'v14.0.*'
+
+env:
+  OWNER: "petrus-v"
+
 
 jobs:
-  buildx:
+  build_docker_image:
     runs-on: ubuntu-latest
     steps:
       -
         name: Checkout
         uses: actions/checkout@v4
-
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
+      -
+        name: Login to ghcr.io
+        if: ${{ github.repository_owner == env.OWNER && github.ref == 'refs/heads/14.0' || startsWith(github.ref, 'refs/tags/') }}
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Build
         uses: docker/build-push-action@v6
@@ -28,10 +39,10 @@ jobs:
           context: .
           file: Dockerfile
           tags: |
-            ghcr.io/oca/oca-custom:14.0-oca-latest
-          # cache-from: type=registry,ref=ghcr.io/oca/oca-custom:14.0-oca-latest
+            ghcr.io/${{ env.OWNER }}/oca-custom:14.0-oca-latest
+          cache-from: type=registry,ref=ghcr.io/oca/oca-custom:14.0-oca-latest
           cache-to: type=local,dest=/tmp/.buildx-cache
-          # pull: true
+          pull: true
           load: true
       -
         name: Test install oca_all in docker image
@@ -41,36 +52,26 @@ jobs:
           # purpose it to test update entrypoints
           docker compose up --wait odoo
       -
-        name: Login to ghcr.io
-        if: ${{ github.repository_owner == 'OCA' && github.ref == 'refs/heads/14.0' || startsWith(github.ref, 'refs/tags/') }}
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      -
         name: Push latests cache image
-        if: ${{ github.repository_owner == 'OCA' && github.ref == 'refs/heads/14.0' }}
+        if: ${{ github.repository_owner == env.OWNER && github.ref == 'refs/heads/14.0' }}
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
           tags: |
-            ghcr.io/oca/oca-custom:14.0-oca-latest
+            ghcr.io/${{ env.OWNER }}/oca-custom:14.0-oca-latest
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=inline
           push: true
-
       -
         name: Push image with tag if tagged
-        if: ${{ github.repository_owner == 'OCA' && startsWith(github.ref, 'refs/tags/') }}
+        if: ${{ github.repository_owner == env.OWNER && startsWith(github.ref, 'refs/tags/') }}
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Dockerfile
           tags: |
-            ghcr.io/oca/oca-custom:${{  github.ref_name }}
+            ghcr.io/${{ env.OWNER }}/oca-custom:${{ github.ref_name }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=inline
           push: true

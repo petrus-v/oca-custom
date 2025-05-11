@@ -1,6 +1,6 @@
 services:
   odoo:
-    image: ghcr.io/oca/oca-custom:14.0-oca-latest
+    image: ghcr.io/${OWNER:-oca}/oca-custom:${IMAGE_VERSION:-14.0-oca-latest}
     build:
       context: ./
     networks:
