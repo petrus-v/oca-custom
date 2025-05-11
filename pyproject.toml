@@ -99,10 +99,7 @@ dev-dependencies = [
 [tool.uv.sources]
 odoo = { git = "https://github.com/OCA/OCB", branch = "14.0" }
 odoo-addons-design-themes = { git = "https://github.com/acsone/design-themes", branch = "14.0-with-pyproject" }
-
 odoo14-addon-membership-delegated-partner-line = { git = "https://github.com/OCA/vertical-association", rev = "refs/pull/151/head", subdirectory = "setup/membership_delegated_partner_line" }
-# odoo14-addon-membership-delegated-partner-line = { path = "src/vertical-association/setup/membership_delegated_partner_line", editable = true }
-
 
 [tool.pytest]
 addopts = "-v -s --cov-report term-missing"
@@ -113,3 +110,44 @@ omit = [
   "./**/tests/*",
   "./**/__manifest__.py",
 ]
+
+[tool.bumpversion]
+current_version = "14.0.20250511"
+search = "{current_version}"
+replace = "{new_version}"
+regex = false
+ignore_missing_version = false
+ignore_missing_files = false
+tag = true
+sign_tags = false
+tag_name = "v{new_version}"
+tag_message = "Bump version: {current_version} → {new_version}"
+allow_dirty = false
+commit = true
+message = "Bump version: {current_version} → {new_version}"
+moveable_tags = []
+commit_args = ""
+setup_hooks = []
+pre_commit_hooks = []
+post_commit_hooks = []
+parse = """(?x)                     # Verbose mode
+    (?P<odoo_version>
+        (?:[1-9][0-9])\\.           # 14.
+        (?:[0-9])                   # 0
+    )\\.
+    (?P<release>                    # The release part
+        (?:2[0-9]{3})               # YYYY
+        (?:[0-1][0-9])              # MM
+        (?:3[0-1]|[0-2][0-9])       # DD
+    )
+    (?:\\.(?P<patch>\\d+))?         # .patch, optional
+"""
+serialize = ["{odoo_version}.{release}.{patch}", "{odoo_version}.{release}"]
+
+[tool.bumpversion.parts.release]
+calver_format = "{YYYY}{0M}{0D}"
+
+[[tool.bumpversion.files]]
+filename = "uv.lock"
+search = "name = \"oca-custom\"\nversion = \"{current_version}\""
+replace = "name = \"oca-custom\"\nversion = \"{new_version}\""
