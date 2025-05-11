@@ -50,7 +50,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       -
-        name: Push image
+        name: Push latests cache image
         if: ${{ github.repository_owner == 'OCA' && github.ref == 'refs/heads/14.0' }}
         uses: docker/build-push-action@v6
         with:

@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "oca-custom"
-version = "0.1.0"
+version = "14.0.20250511"
 description = "Odoo by OCA"
 # readme = "README.md"
 requires-python = "==3.9.*"
