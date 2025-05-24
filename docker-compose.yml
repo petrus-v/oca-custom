@@ -30,6 +30,9 @@ services:
       interval: 2s
       timeout: 200ms
       retries: 150
+    depends_on:
+      - db
+      - kwkhtmltopdf
 
   db:
     image: postgres

@@ -52,7 +52,7 @@ way.
 
 Requirements:
 
-- Postrgesql
+- Postgresql
 - [uv](https://docs.astral.sh/uv/)
 - Some dependencies to be able to build some python packages: `libpq-dev`,
   `build-essential`, TODO
@@ -64,6 +64,21 @@ download for you if necessary) and install the required dependencies:
 ```bash
 uv sync
 ```
+
+### Development
+
+For addons living in this repository, you can just change code and restart Odoo with the
+`uv run` command.
+
+For addons in other repositories, the procedure is as follows:
+
+- check out the repository somewhere, ie /src/\$repo
+- add the following line to `pyproject.toml` in the `[tool.uv.sources]` section:
+
+        odoo14-addon-$youraddon = { path = "/srv/$repo/setup/$youraddon", editable = true }
+
+- run `uv sync`
+- restart Odoo
 
 ### Setup database and launch tests
 
