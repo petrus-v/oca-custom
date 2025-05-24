@@ -525,7 +525,7 @@ wheels = [
 
 [[package]]
 name = "oca-custom"
-version = "14.0.20250511"
+version = "14.0"
 source = { editable = "." }
 dependencies = [
     { name = "babel" },
