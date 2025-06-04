@@ -655,7 +655,7 @@ requires-dist = [
     { name = "mako", specifier = "==1.0.7" },
     { name = "markupsafe", specifier = "==1.1.0" },
     { name = "num2words", specifier = "==0.5.6" },
-    { name = "odoo", git = "https://github.com/OCA/OCB?branch=14.0" },
+    { name = "odoo", git = "https://github.com/OCA/OCB?rev=refs%2Fpull%2F1299%2Fhead" },
     { name = "odoo-addons-design-themes", git = "https://github.com/acsone/design-themes?branch=14.0-with-pyproject" },
     { name = "odoo14-addon-account-banking-pain-base" },
     { name = "odoo14-addon-account-banking-sepa-credit-transfer" },
@@ -751,7 +751,7 @@ dev = [
 [[package]]
 name = "odoo"
 version = "14.0"
-source = { git = "https://github.com/OCA/OCB?branch=14.0#1bbabffeead7a00defe29942a5c9ecf574393dd6" }
+source = { git = "https://github.com/OCA/OCB?rev=refs%2Fpull%2F1299%2Fhead#ef660dfcd719bf8e3c74158c001903fe33411745" }
 dependencies = [
     { name = "babel" },
     { name = "decorator" },
@@ -1242,7 +1242,7 @@ wheels = [
 [[package]]
 name = "odoo14-addon-membership-delegated-partner-line"
 version = "14.0.1.0.1.dev1"
-source = { git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead#73c0f18963c7c867def92506787128aa9fd99661" }
+source = { git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead#b2b3c7f0cd574d0f0ae0b132d9ae9e0076f50e71" }
 dependencies = [
     { name = "odoo" },
 ]
