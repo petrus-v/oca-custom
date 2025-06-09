@@ -4,7 +4,8 @@
 # Base stage, with the non-python runtime dependencies, and uv.
 #
 
-FROM ghcr.io/acsone/odoo-bedrock:14.0-py39-focal-latest AS base
+ARG DISTRO=focal
+FROM ghcr.io/acsone/odoo-bedrock:14.0-py39-${DISTRO}-latest AS base
 
 # Install apt runtime dependencies.
 RUN set -e \
@@ -41,7 +42,8 @@ RUN set -e \
 
 # Install the locked dependencies in the virtual environment,
 # but not the project
-RUN --mount=type=cache,target=/root/.cache/uv \
+ARG DISTRO
+RUN --mount=type=cache,target=/root/.cache/uv,id=uv-${DISTRO} \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
     uv sync --frozen --no-install-project
@@ -59,7 +61,8 @@ COPY --from=dependencies $VIRTUAL_ENV $VIRTUAL_ENV
 COPY . /app
 WORKDIR /app
 RUN python -m compileall .
-RUN --mount=type=cache,target=/root/.cache/uv \
+ARG DISTRO
+RUN --mount=type=cache,target=/root/.cache/uv,id=uv-${DISTRO} \
     uv sync --locked --no-dev
 
 COPY entrypoints/* /odoo/start-entrypoint.d/

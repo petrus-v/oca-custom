@@ -205,6 +205,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cssselect"
+version = "1.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/72/0a/c3ea9573b1dc2e151abfe88c7fe0c26d1892fe6ed02d0cdb30f0d57029d5/cssselect-1.3.0.tar.gz", hash = "sha256:57f8a99424cfab289a1b6a816a43075a4b00948c86b4dcf3ef4ee7e15f7ab0c7", size = 42870, upload-time = "2025-03-10T09:30:29.638Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ee/58/257350f7db99b4ae12b614a36256d9cc870d71d9e451e79c2dc3b23d7c3c/cssselect-1.3.0-py3-none-any.whl", hash = "sha256:56d1bf3e198080cc1667e137bc51de9cadfca259f03c2d4e09037b3e01e30f0d", size = 18786, upload-time = "2025-03-10T09:30:28.048Z" },
+]
+
+[[package]]
 name = "decorator"
 version = "4.3.0"
 source = { registry = "https://pypi.org/simple" }
@@ -601,6 +610,7 @@ dependencies = [
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
     { name = "odoo14-addon-website-apps-store" },
     { name = "ofxparse" },
+    { name = "openupgradelib" },
     { name = "passlib" },
     { name = "pillow" },
     { name = "polib" },
@@ -712,6 +722,7 @@ requires-dist = [
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
     { name = "odoo14-addon-website-apps-store" },
     { name = "ofxparse", specifier = "==0.19" },
+    { name = "openupgradelib" },
     { name = "passlib", specifier = "==1.7.1" },
     { name = "pillow", specifier = "==8.1.1" },
     { name = "polib", specifier = "==1.1.0" },
@@ -1467,6 +1478,19 @@ dependencies = [
     { name = "six" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/3f/e3/d780743d5037b27276577cdf82a86fe0b5ab81567bcacec33bf92cdca478/ofxparse-0.19.tar.gz", hash = "sha256:d8c81fd5089332106da1a2e8919c412c7c677f08af04d557ca767701a04e0918", size = 54140, upload-time = "2018-08-08T12:59:07.755Z" }
+
+[[package]]
+name = "openupgradelib"
+version = "3.11.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cssselect" },
+    { name = "lxml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/de/46/95587d765a363667d9bbcd905ee4eafcaf822b7a2cd8c240a28f6730a4b6/openupgradelib-3.11.1.tar.gz", hash = "sha256:b37adbf37b94e649febb99eaa887ee218c3b372061087e35e3901af585d8cbed", size = 7852021, upload-time = "2025-05-19T16:56:10.223Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b6/9e/92ea3598d9d4d55eb377eb1e4946ec8ac86b4c6d560907f5e265676cbe26/openupgradelib-3.11.1-py2.py3-none-any.whl", hash = "sha256:e34c57c835e6434171ceebe00d4a6b3245351135c602b39b868d7f82912efc56", size = 84839, upload-time = "2025-05-19T16:56:08.563Z" },
+]
 
 [[package]]
 name = "packaging"

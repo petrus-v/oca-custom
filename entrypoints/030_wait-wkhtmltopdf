@@ -10,7 +10,7 @@ SLEEP_TIME=2    # Wait time between attempts (in seconds)
 # Attempt counter
 attempt=1
 
-# Wait for PostgreSQL to be available
+# Wait for wkhtmltopdf to be available
 until [ "$attempt" -ge "$MAX_RETRIES" ]; do
     if wkhtmltopdf --version > /dev/null 2>&1; then
         echo "wkhtmltopdf is available!"
