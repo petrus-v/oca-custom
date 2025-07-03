@@ -611,8 +611,10 @@ dependencies = [
     { name = "odoo14-addon-report-xlsx-helper" },
     { name = "odoo14-addon-sentry" },
     { name = "odoo14-addon-sql-request-abstract" },
+    { name = "odoo14-addon-survey-xlsx" },
     { name = "odoo14-addon-uom-unece" },
     { name = "odoo14-addon-web-advanced-search" },
+    { name = "odoo14-addon-web-refresher" },
     { name = "odoo14-addon-web-responsive" },
     { name = "odoo14-addon-web-search-with-and" },
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
@@ -620,6 +622,7 @@ dependencies = [
     { name = "ofxparse" },
     { name = "openupgradelib" },
     { name = "passlib" },
+    { name = "pdfminer-six" },
     { name = "pillow" },
     { name = "polib" },
     { name = "psutil" },
@@ -728,8 +731,10 @@ requires-dist = [
     { name = "odoo14-addon-report-xlsx-helper" },
     { name = "odoo14-addon-sentry" },
     { name = "odoo14-addon-sql-request-abstract" },
+    { name = "odoo14-addon-survey-xlsx" },
     { name = "odoo14-addon-uom-unece" },
     { name = "odoo14-addon-web-advanced-search" },
+    { name = "odoo14-addon-web-refresher" },
     { name = "odoo14-addon-web-responsive" },
     { name = "odoo14-addon-web-search-with-and" },
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
@@ -737,6 +742,7 @@ requires-dist = [
     { name = "ofxparse", specifier = "==0.19" },
     { name = "openupgradelib" },
     { name = "passlib", specifier = "==1.7.1" },
+    { name = "pdfminer-six", specifier = "==20211012" },
     { name = "pillow", specifier = "==8.1.1" },
     { name = "polib", specifier = "==1.1.0" },
     { name = "psutil", specifier = "==5.6.6" },
@@ -1490,6 +1496,18 @@ wheels = [
 ]
 
 [[package]]
+name = "odoo14-addon-survey-xlsx"
+version = "14.0.1.0.1.dev8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "odoo" },
+    { name = "odoo14-addon-report-xlsx" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/cc/ae/fcac7d988d61e3b8ed66613a7f1959a0314f5bae1dcc8f99eb3b55a4f0c3/odoo14_addon_survey_xlsx-14.0.1.0.1.dev8-py3-none-any.whl", hash = "sha256:480266e4d86539610e24e88164c5aae379ee809d5b4dd6240b39c7c6a6d54010", size = 24491, upload-time = "2023-10-31T06:28:32.849Z" },
+]
+
+[[package]]
 name = "odoo14-addon-uom-unece"
 version = "14.0.1.0.1.dev10"
 source = { registry = "https://pypi.org/simple" }
@@ -1509,6 +1527,17 @@ dependencies = [
 ]
 wheels = [
     { url = "https://files.pythonhosted.org/packages/e6/98/f09f0b555245138ef9c97390c77cf01124ab8cae40af119170458ca8465c/odoo14_addon_web_advanced_search-14.0.1.0.2.dev7-py3-none-any.whl", hash = "sha256:549f3109f023a56554863f433a86ac0d6c7bab4120358b96186e49b5b4fdfce3", size = 48685, upload-time = "2024-01-20T07:03:54.258Z" },
+]
+
+[[package]]
+name = "odoo14-addon-web-refresher"
+version = "14.0.2.0.1.dev2"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "odoo" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/50/02/e462c7dbf03e4c0c5acf9ee3724c20fce7c91d21d9a47a590168cbac8fa0/odoo14_addon_web_refresher-14.0.2.0.1.dev2-py3-none-any.whl", hash = "sha256:ef8d289d26f736b21c83e2946b29e26f53483f81e33cd21f90a5cef29355b5a5", size = 41726, upload-time = "2023-09-03T17:56:23.275Z" },
 ]
 
 [[package]]
@@ -1615,6 +1644,19 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712", size = 51043, upload-time = "2023-12-10T22:30:45Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08", size = 31191, upload-time = "2023-12-10T22:30:43.14Z" },
+]
+
+[[package]]
+name = "pdfminer-six"
+version = "20211012"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "chardet" },
+    { name = "cryptography" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ac/0a/b01677bb31bd79756f05ff3e052ad369ac0ebb2e64b47fc6d6bad290d981/pdfminer.six-20211012.tar.gz", hash = "sha256:0351f17d362ee2d48b158be52bcde6576d96460efd038a3e89a043fba6d634d7", size = 7350867, upload-time = "2021-10-12T18:49:32.183Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/51/2b/0a3329605203de8df990ff5427a145dc81ea3e0eff0046424d1d306d1b29/pdfminer.six-20211012-py3-none-any.whl", hash = "sha256:d3efb75c0249b51c1bf795e3a8bddf1726b276c77bf75fb136adea471ee2825b", size = 5604808, upload-time = "2021-10-12T18:49:23.832Z" },
 ]
 
 [[package]]
