@@ -54,6 +54,7 @@ services:
 
   kwkhtmltopdf:
     image: ghcr.io/acsone/kwkhtmltopdf:0.12.5-latest
+    init: true
     networks:
       - kwkhtmltopdf
 
