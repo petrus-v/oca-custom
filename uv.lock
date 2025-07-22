@@ -1081,7 +1081,7 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-apps-product-creator"
-version = "14.0.1.0.1.dev7"
+version = "14.0.1.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "odoo" },
@@ -1089,7 +1089,7 @@ dependencies = [
     { name = "odoo14-addon-github-connector-odoo" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/65/e7/2c61001da2584be14340dbd310d9c74b69c8fdb4f33176f0379666a2e5f8/odoo14_addon_apps_product_creator-14.0.1.0.1.dev7-py3-none-any.whl", hash = "sha256:0ff310b4e110e9bbf6214bafc0228195784c2d365ba067b2d00d9c9b166ce023", size = 43841, upload-time = "2025-04-03T02:37:51.985Z" },
+    { url = "https://files.pythonhosted.org/packages/a8/4f/458c23060ca76075f295e277407a1ced7e5aa72d4a4936809aed9f8e3959/odoo14_addon_apps_product_creator-14.0.1.0.1-py3-none-any.whl", hash = "sha256:a88503681c725ade7381c9139db306ece551d23f5373ef61f69ab919fc149679", size = 44170, upload-time = "2025-07-26T10:30:37.621Z" },
 ]
 
 [[package]]
