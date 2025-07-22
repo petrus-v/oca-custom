@@ -26,20 +26,18 @@ Here we focus on what to do without explaining how to do it.
 
 ### Release
 
-- Add a tag to any git commit (prefer a commit in the 14.0 branch even this is not
-  required which could helps if needs to quickly deliver a bug fix) and push it to the
-  repo (ie:
-  `git tag -am "New release 2025-05-24" v14.0-20250524 && git push oca v14.0-20250524`).
+While we are building and publishing a docker image the current state is that the image
+is build at deploy time on OCA server.
 
-- This will will trigger other flow to create the docker image. Tag must matched
-  following pattern to trigner the CI `v14.0.*`.
+While technicaly speaking there is nothing more than accessing to a public commit to
+deploy a new version it's a common practice to merge your work on branch 14.0 before
+deploying a new version in production.
 
-- A new docker image should be available in the
-  [github docker registry](https://github.com/oca/oca-custom/pkgs/container/oca-custom)
+> **Note**: in this repository we allow unreleased dependencies.
 
 ### deployment
 
-Ask administrator to deploy the given version.
+Ask administrator to deploy the given commit.
 
 ## HowTos
 
@@ -73,30 +71,49 @@ For addons in other repositories, the procedure is as follows:
 - check out the repository somewhere, ie /src/\$repo
 - add the following line to `pyproject.toml` in the `[tool.uv.sources]` section:
 
-        odoo14-addon-$youraddon = { path = "/srv/$repo/setup/$youraddon", editable = true }
+  ```pyproject
+  odoo14-addon-$youraddon = { path = "/srv/$repo/setup/$youraddon", editable = true }
+  ```
 
 - run `uv sync`
 - restart Odoo
+
+### use unreleased dependency
+
+There is two different goals:
+
+- making the test CI pass: using regular test-requirements.txt files add a line such as
+
+  ```
+  odoo14-addon-membership-delegated-partner-line @ git+https://github.com/OCA/vertical-association@refs/pull/151/head#subdirectory=setup/membership_delegated_partner_line
+  ```
+
+- bring the unreleased dependency in the uv project (and the built docker image), add
+  the following line to `pyproject.toml` in the `[tool.uv.sources]` section:
+
+  ```pyproject
+  odoo14-addon-membership-delegated-partner-line = { git = "https://github.com/OCA/vertical-association", rev = "refs/pull/151/head", subdirectory = "setup/membership_delegated_partner_line" }
+  ```
 
 ### Setup database and launch tests
 
 - setup database with demo data and all oca modules installed
 
 ```bash
-uv run odoo -d oca-custom -i oca_all --stop-after-init --without-de
+uv run odoo -d oca-custom -i oca_all --stop-after-init --without-demo=
 ```
 
 - run tests using pytest launcher
 
-````bash
+```bash
 uv run pytest --odoo-database oca-custom --cov ./oca_psc_team/ oca_psc_team/
-``
+```
 
 ### Update OCB Branch
 
 ```bash
 uv sync -P odoo
-````
+```
 
 ### Update a specific OCA module dependency using the latest pypi release
 
