@@ -1,11 +1,12 @@
 # Copyright 2019 Surekha Technologies (https://www.surekhatech.com)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html)
 
-from odoo.tests import HttpCase
+from odoo.tests import HttpCase, tagged
 
 from odoo.addons.http_routing.models.ir_http import slug
 
 
+@tagged("post_install", "-at_install")
 class TestPSCTeamsController(HttpCase):
     def setUp(self):
         super(TestPSCTeamsController, self).setUp()
