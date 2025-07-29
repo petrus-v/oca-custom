@@ -12,6 +12,9 @@ RUN set -e \
   && apt update \
   && apt -y install --no-install-recommends \
        postgresql-client \
+       # this is a required dependency for
+       # github_connector* Odoo modules
+       git \
   && apt -y clean \
   && rm -rf /var/lib/apt/lists/*
 

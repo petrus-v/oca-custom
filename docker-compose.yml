@@ -23,6 +23,7 @@ services:
       - KWKHTMLTOPDF_SERVER_URL=http://kwkhtmltopdf:8080
       - ODOO_REPORT_URL=http://odoo:8069
       - RUNNING_ENV=dev
+      - SOURCE_CODE_LOCAL_PATH=/tmp
     healthcheck:
       test: ["CMD", "bash", "-c", "echo > /dev/tcp/0.0.0.0/8069"]
       interval: 2s
@@ -33,7 +34,7 @@ services:
       - kwkhtmltopdf
 
   db:
-    image: postgres
+    image: postgres:16.9
     volumes:
       - oca_pgdata:/var/lib/postgresql/data
     environment:
