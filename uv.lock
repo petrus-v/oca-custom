@@ -738,7 +738,7 @@ requires-dist = [
     { name = "odoo14-addon-web-responsive" },
     { name = "odoo14-addon-web-search-with-and" },
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
-    { name = "odoo14-addon-website-apps-store" },
+    { name = "odoo14-addon-website-apps-store", git = "https://github.com/OCA/apps-store?subdirectory=setup%2Fwebsite_apps_store&rev=refs%2Fpull%2F96%2Fhead" },
     { name = "ofxparse", specifier = "==0.19" },
     { name = "openupgradelib" },
     { name = "passlib", specifier = "==1.7.1" },
@@ -1081,7 +1081,7 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-apps-product-creator"
-version = "14.0.1.0.1"
+version = "14.0.1.0.1.dev7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "odoo" },
@@ -1089,7 +1089,7 @@ dependencies = [
     { name = "odoo14-addon-github-connector-odoo" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/a8/4f/458c23060ca76075f295e277407a1ced7e5aa72d4a4936809aed9f8e3959/odoo14_addon_apps_product_creator-14.0.1.0.1-py3-none-any.whl", hash = "sha256:a88503681c725ade7381c9139db306ece551d23f5373ef61f69ab919fc149679", size = 44170, upload-time = "2025-07-26T10:30:37.621Z" },
+    { url = "https://files.pythonhosted.org/packages/65/e7/2c61001da2584be14340dbd310d9c74b69c8fdb4f33176f0379666a2e5f8/odoo14_addon_apps_product_creator-14.0.1.0.1.dev7-py3-none-any.whl", hash = "sha256:0ff310b4e110e9bbf6214bafc0228195784c2d365ba067b2d00d9c9b166ce023", size = 43841, upload-time = "2025-04-03T02:37:51.985Z" },
 ]
 
 [[package]]
@@ -1572,15 +1572,12 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-website-apps-store"
-version = "14.0.1.3.2.dev1"
-source = { registry = "https://pypi.org/simple" }
+version = "14.0.1.3.2.dev2"
+source = { git = "https://github.com/OCA/apps-store?subdirectory=setup%2Fwebsite_apps_store&rev=refs%2Fpull%2F96%2Fhead#53d7b49325f6513eb9286155809f2f557d448c9d" }
 dependencies = [
     { name = "odoo" },
     { name = "odoo14-addon-apps-download" },
     { name = "odoo14-addon-apps-product-creator" },
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/1e/3d/956c4b70539a49c8c99b6a7215cca605b3551401a85372e7f9ebc7481873/odoo14_addon_website_apps_store-14.0.1.3.2.dev1-py3-none-any.whl", hash = "sha256:b1879e2303952ee3c4a72cd8192db863f9acb16e20a4c19e13bde84cbe83e8a5", size = 40095, upload-time = "2025-01-21T02:37:27.515Z" },
 ]
 
 [[package]]
