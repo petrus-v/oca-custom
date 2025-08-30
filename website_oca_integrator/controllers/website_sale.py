@@ -28,18 +28,47 @@ class WebsiteIntegratorSale(WebsiteSale):
     def _get_search_domain(
         self, search, category, attrib_values, search_in_description=True, *args, **post
     ):
-        if not search.isascii():
+        if search and not search.isascii():
             # ignoring search that contain non ascii chars
             # most of OCA modules use english to describe it
             # to gives more time to find a proposer defender solution
             return FALSE_DOMAIN
-        return super()._get_search_domain(
-            search,
+        # default app store module fulltexts many fields:
+        # https://github.com/OCA/apps-store/blob/14.0/website_apps_store/controllers/main.py
+        # This prevents search in fields that OCA app store does not use.
+        # Scrapped:
+        #  product_template.description_sale --> not filled in OCA case
+        #  product_template.description --> not filled in OCA case
+        #  product_product.default_code --> not filled in OCA case
+        #  product_attribute_value.name --> useful to filter on version but not search
+        # Kept:
+        #  product_template.technical_name --> useful
+        #  product_template.name --> useful
+        #  product_product.app_description_rst_html --> useful
+        #  product_product.app_summary --> useful
+        #  odoo_author.name --> useful
+        domain = super()._get_search_domain(
+            False,  # dont let super decide the 'search' domain parts
             category,
             attrib_values,
             search_in_description=search_in_description,
             **post,
         )
+        if search:
+            for srch in search.split(" "):
+                domain += [
+                    "|",
+                    "|",
+                    "|",
+                    "|",
+                    ("name", "ilike", srch),
+                    ("technical_name", "ilike", srch),
+                    ("product_variant_ids.app_description_rst_html", "ilike", srch),
+                    ("product_variant_ids.app_author_ids.name", "ilike", srch),
+                    ("product_variant_ids.app_summary", "ilike", srch),
+                ]
+
+        return domain
 
     @http.route()
     def shop(self, page=0, category=None, search="", integrator="", ppg=False, **post):
