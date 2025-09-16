@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = "==3.9.*"
 
 [options]
@@ -692,7 +692,7 @@ requires-dist = [
     { name = "odoo14-addon-account-reconciliation-widget" },
     { name = "odoo14-addon-account-statement-import" },
     { name = "odoo14-addon-account-statement-import-base" },
-    { name = "odoo14-addon-account-statement-import-online-wise", git = "https://github.com/OCA/bank-statement-import?subdirectory=setup%2Faccount_statement_import_online_wise&rev=refs%2Fpull%2F816%2Fhead" },
+    { name = "odoo14-addon-account-statement-import-online-wise" },
     { name = "odoo14-addon-account-statement-import-paypal" },
     { name = "odoo14-addon-account-statement-import-txt-xlsx" },
     { name = "odoo14-addon-account-tax-unece" },
@@ -1015,13 +1015,16 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-account-statement-import-online-wise"
-version = "14.0.1.0.1.dev7"
-source = { git = "https://github.com/OCA/bank-statement-import?subdirectory=setup%2Faccount_statement_import_online_wise&rev=refs%2Fpull%2F816%2Fhead#2e96f29c13ec096fb48ef99943a5534404be2dd9" }
+version = "14.0.1.0.1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
     { name = "odoo" },
     { name = "odoo14-addon-account-statement-import-online" },
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/7c/1ca6a75a3e3fb4ff1ea131ec69a7eaea4c91dfe0b2224b0f3239e1a60da2/odoo14_addon_account_statement_import_online_wise-14.0.1.0.1-py3-none-any.whl", hash = "sha256:9db622cbb7e2bbc16e0297713e0def3c625cdbaf2882bbc83b0f3f2ddb7107ac", size = 42739, upload-time = "2025-08-29T06:55:28.216Z" },
 ]
 
 [[package]]
