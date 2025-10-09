@@ -29,7 +29,7 @@ Here we focus on what to do without explaining how to do it.
 While we are building and publishing a docker image the current state is that the image
 is build at deploy time on OCA server.
 
-While technicaly speaking there is nothing more than accessing to a public commit to
+While technically speaking there is nothing more than accessing to a public commit to
 deploy a new version it's a common practice to merge your work on branch 14.0 before
 deploying a new version in production.
 
@@ -59,6 +59,17 @@ download for you if necessary) and install the required dependencies:
 
 ```bash
 uv sync
+```
+
+### Neutralize database
+
+If you are allow to access to a production database, neutralization happens while
+stating the Docker container if the running environnement is not the production server.
+
+On development, if your are not using docker you can running neutralize scripts such as:
+
+```bash
+ find entrypoints/neutralize/*.sql -type f -exec  psql <dbname> -f {} \;
 ```
 
 ### Development

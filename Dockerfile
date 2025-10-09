@@ -4,7 +4,7 @@
 # Base stage, with the non-python runtime dependencies, and uv.
 #
 
-ARG DISTRO=focal
+ARG DISTRO=jammy
 FROM ghcr.io/acsone/odoo-bedrock:14.0-py39-${DISTRO}-latest AS base
 
 # Install apt runtime dependencies.
