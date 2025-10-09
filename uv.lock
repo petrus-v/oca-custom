@@ -693,7 +693,7 @@ requires-dist = [
     { name = "odoo14-addon-account-reconciliation-widget" },
     { name = "odoo14-addon-account-statement-import" },
     { name = "odoo14-addon-account-statement-import-base" },
-    { name = "odoo14-addon-account-statement-import-online-wise", git = "https://github.com/OCA/bank-statement-import?subdirectory=setup%2Faccount_statement_import_online_wise&rev=refs%2Fpull%2F816%2Fhead" },
+    { name = "odoo14-addon-account-statement-import-online-wise" },
     { name = "odoo14-addon-account-statement-import-paypal" },
     { name = "odoo14-addon-account-statement-import-txt-xlsx" },
     { name = "odoo14-addon-account-tax-unece" },
@@ -719,7 +719,7 @@ requires-dist = [
     { name = "odoo14-addon-l10n-ch-pain-credit-transfer" },
     { name = "odoo14-addon-mass-editing" },
     { name = "odoo14-addon-mass-operation-abstract" },
-    { name = "odoo14-addon-membership-delegated-partner-line", git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead" },
+    { name = "odoo14-addon-membership-delegated-partner-line" },
     { name = "odoo14-addon-membership-extension" },
     { name = "odoo14-addon-mis-builder" },
     { name = "odoo14-addon-mis-builder-budget" },
@@ -1017,13 +1017,16 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-account-statement-import-online-wise"
-version = "14.0.1.0.1.dev7"
-source = { git = "https://github.com/OCA/bank-statement-import?subdirectory=setup%2Faccount_statement_import_online_wise&rev=refs%2Fpull%2F816%2Fhead#2e96f29c13ec096fb48ef99943a5534404be2dd9" }
+version = "14.0.1.0.1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "cryptography" },
     { name = "odoo" },
     { name = "odoo14-addon-account-statement-import-online" },
     { name = "odoo14-addon-web-widget-dropdown-dynamic" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/7c/1ca6a75a3e3fb4ff1ea131ec69a7eaea4c91dfe0b2224b0f3239e1a60da2/odoo14_addon_account_statement_import_online_wise-14.0.1.0.1-py3-none-any.whl", hash = "sha256:9db622cbb7e2bbc16e0297713e0def3c625cdbaf2882bbc83b0f3f2ddb7107ac", size = 42739, upload-time = "2025-08-29T06:55:28.216Z" },
 ]
 
 [[package]]
@@ -1070,7 +1073,7 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-apps-download"
-version = "14.0.1.0.1.dev5"
+version = "14.0.1.0.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "odoo" },
@@ -1078,12 +1081,12 @@ dependencies = [
     { name = "odoo14-addon-github-connector-odoo" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/99/97/43a5d7f38fe2b8a55408d18b449966816915cf71663a4a81953e44b41042/odoo14_addon_apps_download-14.0.1.0.1.dev5-py3-none-any.whl", hash = "sha256:eb4b5770d632a6b54d58398befbdabe2dea8d661f337cdafa4812c1a18f7a320", size = 44080, upload-time = "2025-01-21T02:37:30.115Z" },
+    { url = "https://files.pythonhosted.org/packages/20/94/1077d4d20cfc9fa33a0f1408c37355696baa923cfc13c9782f4391405399/odoo14_addon_apps_download-14.0.1.0.1-py3-none-any.whl", hash = "sha256:cedce0920574aac904a9f0f21e7cd97e0adbbda612b1cb5c8a9f23d2b151e567", size = 44653, upload-time = "2025-09-16T12:34:57.897Z" },
 ]
 
 [[package]]
 name = "odoo14-addon-apps-product-creator"
-version = "14.0.1.0.1.dev7"
+version = "14.0.1.1.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "odoo" },
@@ -1091,7 +1094,7 @@ dependencies = [
     { name = "odoo14-addon-github-connector-odoo" },
 ]
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/65/e7/2c61001da2584be14340dbd310d9c74b69c8fdb4f33176f0379666a2e5f8/odoo14_addon_apps_product_creator-14.0.1.0.1.dev7-py3-none-any.whl", hash = "sha256:0ff310b4e110e9bbf6214bafc0228195784c2d365ba067b2d00d9c9b166ce023", size = 43841, upload-time = "2025-04-03T02:37:51.985Z" },
+    { url = "https://files.pythonhosted.org/packages/8f/ba/c297d34f2778588e34a8ea3bcefdb70d0b14f14588960b765215f1bd9f34/odoo14_addon_apps_product_creator-14.0.1.1.0-py3-none-any.whl", hash = "sha256:e1a1e8335eb48f5db242957524ee75666f173242138d0d3a20d0ca714f969e4b", size = 44975, upload-time = "2025-09-17T08:08:43.858Z" },
 ]
 
 [[package]]
@@ -1335,10 +1338,13 @@ wheels = [
 
 [[package]]
 name = "odoo14-addon-membership-delegated-partner-line"
-version = "14.0.1.0.1.dev1"
-source = { git = "https://github.com/OCA/vertical-association?subdirectory=setup%2Fmembership_delegated_partner_line&rev=refs%2Fpull%2F151%2Fhead#b2b3c7f0cd574d0f0ae0b132d9ae9e0076f50e71" }
+version = "14.0.1.0.1.dev2"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "odoo" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/9e/96/3ec4b7a4b8e7360634da1ed1503e165a468d36df42b62b35498a61f89dfd/odoo14_addon_membership_delegated_partner_line-14.0.1.0.1.dev2-py3-none-any.whl", hash = "sha256:f1f24ccf1f1f35ececef7e36bb319e56778e0001e98e5449b173522293b4c3e2", size = 29218, upload-time = "2025-09-16T09:56:41.618Z" },
 ]
 
 [[package]]
