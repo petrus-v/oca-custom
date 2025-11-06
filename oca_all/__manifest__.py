@@ -149,6 +149,7 @@
         "base_unece",
         "bi_sql_editor",
         "currency_rate_update",
+        "crowdfunding",
         "date_range",
         "disable_odoo_online",
         "document_page",
