@@ -100,7 +100,7 @@ odoo = { git = "https://github.com/OCA/OCB" }
 
 # unreleased dependency, add it to test-requirements.txt to let the
 # test pipeline to use it as well
-odoo18-addon-membership-delegated-partner-line = { git = "https://github.com/gfcapalbo/membership", branch = "18.0-MIG-membership_delegated_partner_line" }
+odoo18-addon-membership-delegated-partner-line = { git = "https://github.com/gfcapalbo/vertical-association", branch = "18.0-MIG-membership_delegated_partner_line" }
 odoo18-addon-github-connector-oca = { git = "https://github.com/Therp/interface-github", branch = "18.0-mig-github_connector_oca" }
 odoo18-addon-github-survey-oca = { git = "https://github.com/OCA/survey", branch = "18.0" }
 
