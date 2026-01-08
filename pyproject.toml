@@ -105,6 +105,7 @@ odoo = { git = "https://github.com/OCA/OCB" }
 # installing in editable mode
 odoo18-addon-membership-delegated-partner-line = { path = "https://github.com/gfcapalbo/membership", branch = "18.0-MIG-membership_delegated_partner_line" }
 odoo18-addon-github-connector-oca = { path = "https://github.com/Therp/interface-github" branch = "18.0-mig-github_connector_oca" }
+odoo18-addon-github-survey-oca = { path = "https://github.com/OCA/survey" branch = "18.0" }
 
 [tool.pytest]
 addopts = "-v -s --cov-report term-missing"
