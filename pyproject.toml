@@ -110,4 +110,3 @@ odoo18-addon-github-survey-oca = { git = "https://github.com/OCA/survey", branch
 
 [tool.pytest]
 addopts = "-v -s --cov-report term-missing"
-
