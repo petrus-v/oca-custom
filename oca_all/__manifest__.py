@@ -151,7 +151,7 @@
         "report_xlsx_helper",
         "sentry",
         "server_action_mass_edit",
-         "survey_xlsx",
+        "survey_xlsx",
         "sql_request_abstract",
         "uom_unece",
         "web_responsive",
