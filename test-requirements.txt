@@ -1,0 +1,3 @@
+# While running tests, coverage is trying to read configuration in pyproject.toml
+coverage[toml]
+odoo18-addon-membership-delegated-partner-line @  git+https://github.com/gfcapalbo/vertical-association.git@18.0-MIG-membership_delegated_partner_line
