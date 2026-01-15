@@ -97,7 +97,7 @@ dev = [
 
 [tool.uv.sources]
 # Use fix updating account move line update membership line
-odoo = { git = "https://github.com/OCA/OCB" }
+odoo = { git = "https://github.com/OCA/OCB", rev = "refs/pull/1319/head" }
 
 # unreleased dependency, add it to test-requirements.txt to let the
 # test pipeline to use it as well
