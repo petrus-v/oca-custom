@@ -1,5 +1,4 @@
 # Copyright (C) 2016-Today: Odoo Community Association (OCA)
-# @author: Sylvain LE GAL (https://twitter.com/legalsylvain)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
 import logging
@@ -90,12 +89,92 @@ class ResPartner(models.Model):
         ICP.set_param(cursor_key, str(partners[-1].id))
         return True
 
-    def write(self, vals):
-        res = super().write(vals)
-        if self.env.context.get("skip_membership_channel_sync"):
-            return res
+    def _sync_mail_groups_by_tag_delta(self, before_map):
+        """
+        Sync mail.group membership based on changes
+        in partner tags (category_id).
+        """
+        Group = self.env["mail.group"].sudo()
+        Member = self.env["mail.group.member"].sudo()
 
-        if "membership_state" in vals:
+        groups = Group.search([("partner_tag_id", "!=", False)])
+        if not groups:
+            return
+
+        # tag_id -> recordset(mail.group)
+        tag_to_groups = {}
+        empty_groups = Group.browse()
+        for g in groups:
+            tag_to_groups.setdefault(g.partner_tag_id.id, empty_groups)
+            tag_to_groups[g.partner_tag_id.id] |= g
+
+        for partner in self:
+            before = before_map.get(partner.id, set())
+            after = set(partner.category_id.ids)
+
+            added = after - before
+            removed = before - after
+
+            # ADD memberships & avoid duplicates
+            if added:
+                add_groups = empty_groups
+                for tag_id in added:
+                    add_groups |= tag_to_groups.get(tag_id, empty_groups)
+
+                if add_groups:
+                    existing = Member.search(
+                        [
+                            ("partner_id", "=", partner.id),
+                            ("mail_group_id", "in", add_groups.ids),
+                        ]
+                    )
+                    existing_group_ids = set(existing.mapped("mail_group_id").ids)
+
+                    to_create = [
+                        {"mail_group_id": gid, "partner_id": partner.id}
+                        for gid in add_groups.ids
+                        if gid not in existing_group_ids
+                    ]
+                    if to_create:
+                        Member.create(to_create)
+
+            # REMOVE memberships
+            if removed:
+                remove_groups = empty_groups
+                for tag_id in removed:
+                    remove_groups |= tag_to_groups.get(tag_id, empty_groups)
+
+                if remove_groups:
+                    Member.search(
+                        [
+                            ("partner_id", "=", partner.id),
+                            ("mail_group_id", "in", remove_groups.ids),
+                        ]
+                    ).unlink()
+
+    @api.model_create_multi
+    def create(self, vals_list):
+        partners = super().create(vals_list)
+        before_map = {p.id: set() for p in partners}
+        partners._sync_mail_groups_by_tag_delta(before_map)
+        return partners
+
+    def write(self, vals):
+        before_map = (
+            {p.id: set(p.category_id.ids) for p in self}
+            if "category_id" in vals
+            else {}
+        )
+
+        res = super().write(vals)
+
+        if before_map:
+            self._sync_mail_groups_by_tag_delta(before_map)
+
+        if (
+            not self.env.context.get("skip_membership_channel_sync")
+            and "membership_state" in vals
+        ):
             self._sync_member_tag_from_membership_state()
 
         return res

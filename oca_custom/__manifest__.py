@@ -14,12 +14,14 @@
         "contacts",
         "github_connector",
         "membership",
+        "mail_group",
     ],
     "data": [
         "data/ir_cron_data.xml",
         "data/ir_action_server_data.xml",
         "views/res_config_settings.xml",
         "views/res_partner.xml",
+        "views/mail_group.xml",
     ],
     "installable": True,
 }
