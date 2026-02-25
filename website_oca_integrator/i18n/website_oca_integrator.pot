@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,9 +14,37 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.members
+msgid ""
+"<br/>\n"
+"                                        <span>(</span>"
+msgstr ""
+
+#. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrators
+msgid "<i class=\"fa fa-chevron-left me-2\"/> Our Integrators"
+msgstr ""
+
+#. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrators
+msgid "<span>(</span>"
+msgstr ""
+
+#. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrators
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.members
+msgid "<span>)</span>"
+msgstr ""
+
+#. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrators
+msgid "<span>-</span>"
+msgstr ""
+
+#. module: website_oca_integrator
+#. odoo-python
 #: code:addons/website_oca_integrator/controllers/main.py:0
-#: code:addons/website_oca_integrator/controllers/main.py:0
-#, python-format
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.contributor_index
 msgid "All Countries"
 msgstr ""
 
@@ -78,8 +106,6 @@ msgstr ""
 
 #. module: website_oca_integrator
 #: model:ir.model.fields,field_description:website_oca_integrator.field_contributor_module_line__display_name
-#: model:ir.model.fields,field_description:website_oca_integrator.field_odoo_author__display_name
-#: model:ir.model.fields,field_description:website_oca_integrator.field_res_partner__display_name
 #: model:ir.model.fields,field_description:website_oca_integrator.field_sponsorship_line__display_name
 msgid "Display Name"
 msgstr ""
@@ -120,8 +146,6 @@ msgstr ""
 
 #. module: website_oca_integrator
 #: model:ir.model.fields,field_description:website_oca_integrator.field_contributor_module_line__id
-#: model:ir.model.fields,field_description:website_oca_integrator.field_odoo_author__id
-#: model:ir.model.fields,field_description:website_oca_integrator.field_res_partner__id
 #: model:ir.model.fields,field_description:website_oca_integrator.field_sponsorship_line__id
 msgid "ID"
 msgstr ""
@@ -140,21 +164,12 @@ msgstr ""
 
 #. module: website_oca_integrator
 #: model:website.menu,name:website_oca_integrator.menu_integrator
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_footer
 msgid "Integrators"
 msgstr ""
 
 #. module: website_oca_integrator
 #: model:ir.model.fields,field_description:website_oca_integrator.field_sponsorship_line__date_from
 msgid "Join Date"
-msgstr ""
-
-#. module: website_oca_integrator
-#: model:ir.model.fields,field_description:website_oca_integrator.field_contributor_module_line____last_update
-#: model:ir.model.fields,field_description:website_oca_integrator.field_odoo_author____last_update
-#: model:ir.model.fields,field_description:website_oca_integrator.field_res_partner____last_update
-#: model:ir.model.fields,field_description:website_oca_integrator.field_sponsorship_line____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: website_oca_integrator
@@ -200,14 +215,15 @@ msgid "Module Information"
 msgstr ""
 
 #. module: website_oca_integrator
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_modules_list
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.website_portal_integrator_details
-msgid "Modules"
+#. odoo-javascript
+#: code:addons/website_oca_integrator/static/src/js/integrator_portal_tour.js:0
+msgid "Module selector is available"
 msgstr ""
 
 #. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_modules_list
 #: model_terms:ir.ui.view,arch_db:website_oca_integrator.website_portal_integrator_details
-msgid "Modules..."
+msgid "Modules"
 msgstr ""
 
 #. module: website_oca_integrator
@@ -260,15 +276,19 @@ msgstr ""
 
 #. module: website_oca_integrator
 #: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_index
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrators
 msgid "Our Integrators"
 msgstr ""
 
 #. module: website_oca_integrator
 #: model:ir.model.fields,field_description:website_oca_integrator.field_contributor_module_line__partner_id
 #: model:ir.model.fields,field_description:website_oca_integrator.field_sponsorship_line__partner_id
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_grade_detail
 msgid "Partner"
+msgstr ""
+
+#. module: website_oca_integrator
+#. odoo-javascript
+#: code:addons/website_oca_integrator/static/src/js/integrator_portal_tour.js:0
+msgid "Portal page loaded"
 msgstr ""
 
 #. module: website_oca_integrator
@@ -277,6 +297,7 @@ msgid "References"
 msgstr ""
 
 #. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.contributor_index
 #: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_index
 msgid "Search"
 msgstr ""
@@ -314,8 +335,6 @@ msgstr ""
 
 #. module: website_oca_integrator
 #: model:ir.actions.server,name:website_oca_integrator.cron_update_contributor_modules_ir_actions_server
-#: model:ir.cron,cron_name:website_oca_integrator.cron_update_contributor_modules
-#: model:ir.cron,name:website_oca_integrator.cron_update_contributor_modules
 msgid "Synchronize Contributor Modules"
 msgstr ""
 
@@ -352,6 +371,11 @@ msgid "contributor(s)"
 msgstr ""
 
 #. module: website_oca_integrator
+#: model_terms:ir.ui.view,arch_db:website_oca_integrator.contributor_index
+msgid "float-start"
+msgstr ""
+
+#. module: website_oca_integrator
 #: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_index
 msgid "member(s)"
 msgstr ""
@@ -362,7 +386,6 @@ msgid "module(s)"
 msgstr ""
 
 #. module: website_oca_integrator
-#: model_terms:ir.ui.view,arch_db:website_oca_integrator.contributor_index
 #: model_terms:ir.ui.view,arch_db:website_oca_integrator.integrator_index
 msgid "pull-left"
 msgstr ""
