@@ -20,5 +20,5 @@ msgstr ""
 
 #. module: website_sale_oca_apps
 #: model_terms:ir.ui.view,arch_db:website_sale_oca_apps.website_sale_products_moved_banner
-msgid "Visit the new App store"
+msgid "Visit the App store"
 msgstr ""
