@@ -23,6 +23,7 @@ addon | version | maintainers | summary
 --- | --- | --- | ---
 [oca_all](oca_all/) | 18.0.0.0.1 | <a href='https://github.com/petrus-v'><img src='https://github.com/petrus-v.png' width='32' height='32' style='border-radius:50%;' alt='petrus-v'/></a> | All oca modules dependencies
 [oca_custom](oca_custom/) | 18.0.1.0.0 |  | Custom Settings for OCA Instance
+[website_oca_integrator](website_oca_integrator/) | 18.0.1.0.1 |  | Displays Integrators in website.
 
 [//]: # (end addons)
 
