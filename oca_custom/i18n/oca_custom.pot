@@ -14,6 +14,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: oca_custom
+#: model:ir.model,name:oca_custom.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: oca_custom
 #: model:ir.model,name:oca_custom.model_res_partner
 msgid "Contact"
 msgstr ""
@@ -22,4 +27,35 @@ msgstr ""
 #: model:ir.model.fields,field_description:oca_custom.field_res_partner__github_name
 #: model:ir.model.fields,field_description:oca_custom.field_res_users__github_name
 msgid "Github Technical Name"
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.model.fields,field_description:oca_custom.field_res_config_settings__member_tag_id
+#: model_terms:ir.ui.view,arch_db:oca_custom.view_res_config_settings_membership_channel_sync
+msgid "Member tag"
+msgstr ""
+
+#. module: oca_custom
+#: model_terms:ir.ui.view,arch_db:oca_custom.view_res_config_settings_membership_channel_sync
+msgid "Membership Tag Sync"
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.actions.server,name:oca_custom.ir_cron_membership_tag_sync_ir_actions_server
+msgid "Membership: sync Member tag from membership_state"
+msgstr ""
+
+#. module: oca_custom
+#: model_terms:ir.ui.view,arch_db:oca_custom.view_res_config_settings_membership_channel_sync
+msgid "Partner tag that marks Members based on membership_state."
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.model.fields,help:oca_custom.field_res_config_settings__member_tag_id
+msgid "Partner tag that marks Members."
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.actions.server,name:oca_custom.action_partner_membership_sync
+msgid "Sync Member Tag from Membership"
 msgstr ""
