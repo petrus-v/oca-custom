@@ -24,10 +24,14 @@ jobs:
                   grep "^[^#].*/" ${reqfile} || result=$?
                   if [ $result -eq 0 ] ; then
                   echo "::warning:: Unreleased dependencies found in ${reqfile}."
-                      exit 0
+                      exit 1
                   fi
               fi
           done
+    env:
+      GITHUB_STATUS_IGNORED: "0"
+      GITHUB_CHECK_SUITES_IGNORED: "unreleased-deps, "
+      
   test:
     runs-on: ubuntu-22.04
     container: ${{ matrix.container }}
