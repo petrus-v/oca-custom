@@ -755,8 +755,8 @@ requires-dist = [
     { name = "markupsafe", specifier = "==2.1.5" },
     { name = "num2words", specifier = "==0.5.13" },
     { name = "odoo", git = "https://github.com/OCA/OCB?rev=refs%2Fpull%2F1319%2Fhead" },
-    { name = "odoo-addon-account-banking-pain-base", specifier = "==18.0.*" },
-    { name = "odoo-addon-account-banking-sepa-credit-transfer", specifier = "==18.0.*" },
+    { name = "odoo-addon-account-banking-pain-base", git = "https://github.com/Therp/bank-payment?subdirectory=account_banking_pain_base&branch=18.0-mig-account_banking_pain_base_sepa_hybrid_extended_for_09" },
+    { name = "odoo-addon-account-banking-sepa-credit-transfer", git = "https://github.com/Therp/bank-payment?subdirectory=account_banking_sepa_credit_transfer&branch=18.0-mig-account_banking_pain_base_sepa_hybrid_extended_for_09" },
     { name = "odoo-addon-account-credit-control", specifier = "==18.0.*" },
     { name = "odoo-addon-account-financial-report", specifier = "==18.0.*" },
     { name = "odoo-addon-account-invoice-overdue-reminder", specifier = "==18.0.*" },
@@ -913,28 +913,22 @@ dependencies = [
 
 [[package]]
 name = "odoo-addon-account-banking-pain-base"
-version = "18.0.1.1.0.3"
-source = { registry = "https://pypi.org/simple" }
+version = "18.0.1.1.1"
+source = { git = "https://github.com/Therp/bank-payment?subdirectory=account_banking_pain_base&branch=18.0-mig-account_banking_pain_base_sepa_hybrid_extended_for_09#c86abd96a25bf4f14166561b32e171824e2e9b1a" }
 dependencies = [
     { name = "lxml" },
     { name = "odoo" },
     { name = "odoo-addon-account-payment-order" },
     { name = "unidecode" },
 ]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/8e/4e/88f6c63cc1bdd49f2fb5fac07f953934bb30a74a54bf3eaca7e7593227da/odoo_addon_account_banking_pain_base-18.0.1.1.0.3-py3-none-any.whl", hash = "sha256:46f6c0537f8517ba733ea0a20de58f82a5c113a1bfea65a974e99c622a3f4ea0", size = 124932, upload-time = "2025-12-12T02:42:16.987Z" },
-]
 
 [[package]]
 name = "odoo-addon-account-banking-sepa-credit-transfer"
-version = "18.0.1.0.0.2"
-source = { registry = "https://pypi.org/simple" }
+version = "18.0.1.0.1"
+source = { git = "https://github.com/Therp/bank-payment?subdirectory=account_banking_sepa_credit_transfer&branch=18.0-mig-account_banking_pain_base_sepa_hybrid_extended_for_09#c86abd96a25bf4f14166561b32e171824e2e9b1a" }
 dependencies = [
     { name = "odoo" },
     { name = "odoo-addon-account-banking-pain-base" },
-]
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d6/cb/68797404697c6059b1805959c9ecd926de553c1db6da90f8cfd99ec79601/odoo_addon_account_banking_sepa_credit_transfer-18.0.1.0.0.2-py3-none-any.whl", hash = "sha256:55806488e3899e271d338baa3690bf607f2709fdd4681429080eaa98d007a721", size = 80663, upload-time = "2025-07-17T18:13:10.813Z" },
 ]
 
 [[package]]
