@@ -30,6 +30,18 @@ msgid "Github Technical Name"
 msgstr ""
 
 #. module: oca_custom
+#: model:ir.model.fields,help:oca_custom.field_mail_group__partner_tag_id
+msgid ""
+"If set, partners having this tag are automatically added/removed as members "
+"of this mail group."
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.model,name:oca_custom.model_mail_group
+msgid "Mail Group"
+msgstr ""
+
+#. module: oca_custom
 #: model:ir.model.fields,field_description:oca_custom.field_res_config_settings__member_tag_id
 #: model_terms:ir.ui.view,arch_db:oca_custom.view_res_config_settings_membership_channel_sync
 msgid "Member tag"
@@ -43,6 +55,11 @@ msgstr ""
 #. module: oca_custom
 #: model:ir.actions.server,name:oca_custom.ir_cron_membership_tag_sync_ir_actions_server
 msgid "Membership: sync Member tag from membership_state"
+msgstr ""
+
+#. module: oca_custom
+#: model:ir.model.fields,field_description:oca_custom.field_mail_group__partner_tag_id
+msgid "Partner Tag"
 msgstr ""
 
 #. module: oca_custom
