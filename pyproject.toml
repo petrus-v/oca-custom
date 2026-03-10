@@ -64,6 +64,7 @@ dependencies = [
   "pyusb==1.2.1",
   "qrcode==7.4.2",
   "reportlab==4.1.0",
+  "rl-renderPM==4.0.3",
   "requests==2.31.0",
   "rjsmin==1.2.0",
   "urllib3==2.1.0",

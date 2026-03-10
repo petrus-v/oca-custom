@@ -711,6 +711,7 @@ dependencies = [
     { name = "requests" },
     { name = "responses" },
     { name = "rjsmin" },
+    { name = "rl-renderpm" },
     { name = "urllib3" },
     { name = "vobject" },
     { name = "werkzeug" },
@@ -842,6 +843,7 @@ requires-dist = [
     { name = "requests", specifier = "==2.31.0" },
     { name = "responses" },
     { name = "rjsmin", specifier = "==1.2.0" },
+    { name = "rl-renderpm", specifier = "==4.0.3" },
     { name = "urllib3", specifier = "==2.1.0" },
     { name = "vobject", specifier = "==0.9.6.1" },
     { name = "werkzeug", specifier = "==3.0.1" },
@@ -2234,6 +2236,23 @@ name = "rjsmin"
 version = "1.2.0"
 source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/ad/09/b05a0ed0aedb13c7b7a887b4638c5b3c6eb6a16df944deb2593997d8753c/rjsmin-1.2.0.tar.gz", hash = "sha256:6c529feb6c400984452494c52dd9fdf59185afeacca2afc5174a28ab37751a1b", size = 419866, upload-time = "2021-11-14T20:38:09.741Z" }
+
+[[package]]
+name = "rl-renderpm"
+version = "4.0.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/11/23/e34f52864b1218a64904fb7e6d6fc523074b6242db995e7d3759b3ae4e8a/rl_renderPM-4.0.3.tar.gz", hash = "sha256:4680e34c4e35782bc8b4f175ddfdee0e58e3acedee79cdc54bb419ec06b7d019", size = 36003, upload-time = "2023-10-03T11:17:09.767Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2a/66/103b0cfe6843960200dafa9abef8a346ea90a3c7a57f25e3fa0d96d2ea40/rl_renderPM-4.0.3-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:6eb33857cc17109e64e206663b563b1791b4454e00a8886ad197c0aa5bcaf192", size = 498115, upload-time = "2023-10-03T11:15:55.328Z" },
+    { url = "https://files.pythonhosted.org/packages/11/2d/c87b84602981b88056219d9925dbefcff5ea91d23f16863f23cf4b0de940/rl_renderPM-4.0.3-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:c34a8a90c1938f0c80af9eba156267b2ec14000e2a902da26ff7a703b1626816", size = 465100, upload-time = "2023-10-03T11:15:57.87Z" },
+    { url = "https://files.pythonhosted.org/packages/4c/1a/bcaee8ca9a91522a5b856a1028a1e41ed6e887f74c15babbd1429d40ff06/rl_renderPM-4.0.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:85c3549ff58c7dfbd92dc2286f41ac2e0715f04d397cdee37a1b7ad22132fea9", size = 756988, upload-time = "2023-10-03T11:15:59.717Z" },
+    { url = "https://files.pythonhosted.org/packages/6c/29/9b2e61423674bd802977cde4957e98c9ce9c9a49293a03d3efb24fa4c9a2/rl_renderPM-4.0.3-cp312-cp312-manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0655c3ecce2878b18395725f2ce19a1c31d00cd943338ea7e7ed076dcf38f5c3", size = 751597, upload-time = "2023-10-03T11:16:01.507Z" },
+    { url = "https://files.pythonhosted.org/packages/6e/5c/0aff751970fd702470d35d7b4d76d4eff7d54217dffa9657fd1be75647e7/rl_renderPM-4.0.3-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:e5fb09a2fdc46520782e6ed7d1635d660f4f146c98ee5a8f2d3a10db61a45e20", size = 844693, upload-time = "2023-10-03T11:16:04.131Z" },
+    { url = "https://files.pythonhosted.org/packages/78/ec/edfc5d82b8ddab319a0c718d0cff4bb96752ee2d0b50db10334656ecabe4/rl_renderPM-4.0.3-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:14a65b2617b7d6b1530822480ca6911a049c07d2c5a332bde49e6b0a30c3d932", size = 787018, upload-time = "2023-10-03T11:16:05.926Z" },
+    { url = "https://files.pythonhosted.org/packages/0c/2c/9b6a0a0c93d9d4f2cf54921ddb56496321d0a8f6d69a650cbcf136502239/rl_renderPM-4.0.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:b1bfaa95daa4a302958bd5afc0d7ec260fb10c3667e228ff4ab6f78e7dd6e78f", size = 773987, upload-time = "2023-10-03T11:16:08.084Z" },
+    { url = "https://files.pythonhosted.org/packages/7b/85/d633a0ecfb6da9309131317ddba831b6a6ebab66bbcaa7b43a8ff3983adc/rl_renderPM-4.0.3-cp312-cp312-win32.whl", hash = "sha256:42c452e9fcfe6fea5b884249a922822da042af4ff6cc82c4d5efe33ddd220a91", size = 328879, upload-time = "2023-10-03T11:16:09.576Z" },
+    { url = "https://files.pythonhosted.org/packages/28/82/ce3f457ce372915d8c81eb51839eb9f55a796bf9b8344387f4806c4449f7/rl_renderPM-4.0.3-cp312-cp312-win_amd64.whl", hash = "sha256:4d06d92125b840d6fe64f462edf723f9cbf1bc6a3c597afd974fccdacf226e71", size = 385705, upload-time = "2023-10-03T11:16:11.297Z" },
+]
 
 [[package]]
 name = "sentry-sdk"
