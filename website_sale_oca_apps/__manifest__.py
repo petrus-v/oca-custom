@@ -12,6 +12,7 @@
     "depends": ["website_sale"],
     "data": [
         "data/ir_config_parameter.xml",
+        "security/ir_rule.xml",
         "views/templates.xml",
     ],
 }
