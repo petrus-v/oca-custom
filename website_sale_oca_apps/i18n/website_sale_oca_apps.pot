@@ -19,6 +19,17 @@ msgid "<span>The App Store has moved to a new location.</span>"
 msgstr ""
 
 #. module: website_sale_oca_apps
+#: model:ir.model,name:website_sale_oca_apps.model_product_template
+msgid "Product"
+msgstr ""
+
+#. module: website_sale_oca_apps
 #: model_terms:ir.ui.view,arch_db:website_sale_oca_apps.website_sale_products_moved_banner
 msgid "Visit the App store"
+msgstr ""
+
+#. module: website_sale_oca_apps
+#: model:ir.model.fields,field_description:website_sale_oca_apps.field_product_product__was_odoo_app
+#: model:ir.model.fields,field_description:website_sale_oca_apps.field_product_template__was_odoo_app
+msgid "Was Odoo App"
 msgstr ""
