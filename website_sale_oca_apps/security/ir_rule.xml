@@ -3,9 +3,7 @@
     <record id="rule_product_template_odoo_apps_public_read" model="ir.rule">
         <field name="name">Product Template: public access to archived apps</field>
         <field name="model_id" ref="product.model_product_template" />
-        <field
-            name="domain_force"
-        >[('attribute_line_ids.attribute_id.name', '=', 'Odoo Version'), ('website_published', '=', False)]</field>
+        <field name="domain_force">[('was_odoo_app', '=', True)]</field>
         <field
             name="groups"
             eval="[
