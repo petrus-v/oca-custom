@@ -20,17 +20,20 @@
         "bin": [],
     },
     "depends": [
-        "oca_vcp",
         "connector_typesense",
         "search_engine_serializer_pydantic",
+        # custom
+        "oca_vcp_sponsor",
+        "oca_membership_groups",
         # following dependency are needed by uv to resolve the dep
         # correctly as module are not merged
-        "vcp_management",
-        "vcp_git",
+        # TODO remove this dependency when merged
+        "base_url",
     ],
     "data": [
         "data/backend_data.xml",
         "data/index_data.xml",
     ],
     "demo": [],
+    "post_init_hook": "post_init_hook",
 }
