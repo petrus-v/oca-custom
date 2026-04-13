@@ -12,6 +12,33 @@ class ResPartner(models.Model):
     _name = "res.partner"
     _inherit = ["res.partner", "se.indexable.record", "abstract.url"]
 
+    def _get_keyword_fields(self):
+        # The _get_keyword field is call in base_url in two case
+        # Called with a class in the @api.depends in order to flag
+        # the url as invalid "url_need_refresh"
+        # And on the record when recomputing the index
+        # In our case we want to use the sponsor_name as keyword for the url key
+        # if it's a company and the sponsor_name is filled
+        # if not we use the name
+        if not self:
+            # It's the case of the @api.depends, both field will invalid
+            # the "url_need_refresh"
+            return ["name", "sponsor_name"]
+        elif self.is_company and self.sponsor_name:
+            # For company if the sponsor name is fill we use it for the url key
+            return ["sponsor_name"]
+        else:
+            return ["name"]
+
+    def _generate_url_key(self, referential, lang):
+        url_key = super()._generate_url_key(referential, lang)
+        # Add the right prefix for the url key dependendy if it's
+        # a company or a person
+        if self.is_company:
+            return f"integrators/{url_key}"
+        else:
+            return f"community/{url_key}"
+
     # ====== Search engine sync logics ======#
     def _add_to_oca_search_engine(self, vals=None):
         """Add, update or remove partners in 'Company' or 'Person' index"""
@@ -55,6 +82,7 @@ class ResPartner(models.Model):
     def write(self, vals):
         res = super().write(vals)
         self._add_to_oca_search_engine(vals)
+        self.sudo()._se_mark_to_update()
         return res
 
     # ===== Business logics =====#
@@ -62,4 +90,17 @@ class ResPartner(models.Model):
         return self.mail_group_member_ids.mail_group_id.filtered("is_working_group")
 
     def _get_company_members(self):
-        return self.filtered("is_company").child_ids.filtered("is_member")
+        self.ensure_one()
+        if self.is_company:
+            return (self | self.sponsor_child_ids).child_ids.filtered("is_member")
+        else:
+            return self.browse()
+
+    def _get_company_contributors(self):
+        self.ensure_one()
+        if self.is_company:
+            return (self | self.sponsor_child_ids).child_ids.filtered(
+                lambda s: s.is_contributor
+            )
+        else:
+            return self.browse()
