@@ -171,6 +171,8 @@
         "website_oca_integrator",
         "website_sale_hide_empty_category",
         "website_sale_oca_apps",
+        # OCA CUSTOM
+        "oca_website",
     ],
     "installable": True,
 }
