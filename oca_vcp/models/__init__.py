@@ -5,3 +5,6 @@ from . import vcp_repository_category
 from . import vcp_rule
 from . import vcp_user
 from . import res_partner
+from . import vcp_organization_history
+from . import vcp_review
+from . import vcp_comment
