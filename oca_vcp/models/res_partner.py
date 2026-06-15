@@ -11,16 +11,20 @@ class ResPartner(models.Model):
     _inherit = "res.partner"
 
     github_main_login = fields.Char(
-        compute="_compute_github_main_login", inverse="_inverse_github_info"
+        compute="_compute_github_main_login",
+        inverse="_inverse_github_info",
+        compute_sudo=True,
     )
     github_sync_avatar = fields.Boolean(
         compute="_compute_github_sync_avatar",
         inverse="_inverse_github_info",
+        compute_sudo=True,
     )
     oca_collaboration_index = fields.Integer(
         "OCA collaboration index",
         help="This index is based on the last 12 Months. Moving Annual Total (MAT)",
         compute="_compute_oca_collaboration_index",
+        compute_sudo=True,
     )
     organization_history_ids = fields.One2many("vcp.organization.history", "partner_id")
 
