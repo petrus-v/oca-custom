@@ -31,13 +31,15 @@ class TestOcaCompaniesSearchEngine(TestOcaSponsorCommon):
                 "email": "contact@fullsponsor.com",
                 "website_long_description": "We are a great sponsor.",
                 "website_description_why_sponsoring": "Because OCA rocks.",
+                "country_id": self.env.ref("base.fr").id,
                 "sponsor_industry_ids": [
                     (6, 0, [self.industry_a.id, self.industry_b.id])
                 ],
             }
         )
-        data = Company.from_record(sponsor).model_dump(mode="json")["sponsorship"]
+        self.grade.show_industry = True
 
+        data = Company.from_record(sponsor).model_dump(mode="json")["sponsorship"]
         # Test a few data
         self.assertEqual(data["level"]["name"], self.grade.name)
         industry_names = [i["name"] for i in data["industries"]]
