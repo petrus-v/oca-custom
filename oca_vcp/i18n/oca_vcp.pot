@@ -181,6 +181,12 @@ msgid "Organization History"
 msgstr ""
 
 #. module: oca_vcp
+#: model:ir.model.fields,field_description:oca_vcp.field_res_partner__organization_member_ids
+#: model:ir.model.fields,field_description:oca_vcp.field_res_users__organization_member_ids
+msgid "Organization Member"
+msgstr ""
+
+#. module: oca_vcp
 #: model:ir.model.fields,field_description:oca_vcp.field_vcp_comment__partner_organization_id
 #: model:ir.model.fields,field_description:oca_vcp.field_vcp_review__partner_organization_id
 msgid "Organization Partner"
