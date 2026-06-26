@@ -145,8 +145,6 @@ class Company(StrictExtendableBaseModel):
 
         # ensure url is up to date
         record._update_url_key(lang=record.env.context.get("lang"))
-        members = record._get_company_members()
-        contributors = record._get_company_contributors()
         return cls.model_construct(
             id=record.id,
             name=(record.sponsor_name or "").strip() or record.name.strip() or "",
@@ -163,9 +161,11 @@ class Company(StrictExtendableBaseModel):
             ],
             logo_urls=LogoUrls.from_record(record),
             # github indicators
-            contributors_count=len(contributors),
+            contributors_count=len(
+                record.organization_member_ids.filtered("is_contributor")
+            ),
             collaboration_index=record.oca_collaboration_index,
-            members_count=len(members),
+            members_count=len(record.organization_member_ids.filtered("is_member")),
             modules_count=record.modules_author_count,
             # technical website fields
             url_key=record.is_sponsor and record.url_key or None,
