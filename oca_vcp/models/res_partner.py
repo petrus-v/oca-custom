@@ -30,6 +30,10 @@ class ResPartner(models.Model):
     current_organization_id = fields.Many2one(
         "res.partner", compute="_compute_current_organization_id", store=True
     )
+    organization_member_ids = fields.One2many(
+        "res.partner",
+        "current_organization_id",
+    )
 
     @api.depends()
     def _compute_oca_collaboration_index(self):
